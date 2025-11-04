@@ -53,9 +53,8 @@ int main() {
     
     printf("Padre: Todos los hijos han terminado.\n");
     return 0;
-}
-
-void hijoHasAlgo(int numero) {
+    }
+    void hijoHasAlgo(int numero) {
     int i, MAX = 10;
     
     switch(numero) {
@@ -106,6 +105,9 @@ void hijoHasAlgo(int numero) {
     
     printf("Hijo %d (PID: %d) ha terminado su tarea.\n", numero, getpid());
 }
+
+
+
 Explicación
 
 La constante NUM_PROC define la cantidad de procesos hijos a crear (3 en este caso).
