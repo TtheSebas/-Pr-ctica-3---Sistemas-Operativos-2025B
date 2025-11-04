@@ -10,18 +10,21 @@ Identificar números pares e impares.
 
 Calcular factoriales.
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <math.h>
-
-#define NUM_PROC 3
-
-void hijoHasAlgo(int numero);
-
-int main() {
+                #include <stdio.h>
+                #include <stdlib.h>
+                #include <unistd.h>
+                #include <sys/wait.h>
+                #include <math.h>
+                #define NUM_PROC 3
+                void hijoHasAlgo(int numero);
+                int main() {
     int i, pid;
+            case 0:
+                // Proceso hijo
+                hijoHasAlgo(i);
+                exit(0); // Importante: el hijo debe terminar después de su tarea
+                break;
+
     
     for (i = 1; i <= NUM_PROC; i++) {
         pid = fork();
@@ -29,12 +32,6 @@ int main() {
         switch(pid) {
             case -1:
                 fprintf(stderr, "Error al crear el proceso\n");
-                break;
-                
-            case 0:
-                // Proceso hijo
-                hijoHasAlgo(i);
-                exit(0); // Importante: el hijo debe terminar después de su tarea
                 break;
                 
             default:
